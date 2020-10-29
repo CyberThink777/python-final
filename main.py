@@ -1,6 +1,7 @@
 import art as art
 from game import Game
 
+
 def main():
     print("-----Welcome to Hangman-----")
     print()
@@ -14,8 +15,9 @@ def main():
         play_again = input("Do you want to play again?(y/n) ")
         if play_again.lower() == "n":
             break
-    else: 
+    else:
         print("Thanks for playing")
+
 
 if __name__ == "__main__":
     main()
