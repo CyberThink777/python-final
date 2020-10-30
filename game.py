@@ -16,25 +16,36 @@ class Game:
         print()
 
     def check_win(self):
+        if self.state < 10 and self.word == ''.join(self.answer):
+            return True
         return False
-        # if state < 10 and :
 
     def check_lose(self):
+        if not self.state < 10:
+            return True
         return False
-        # if state < 10 and :
 
     def check_ans(self, guess):
-        # TODO check whole word
         correct = False
-        for i,char in enumerate(self.word):
-            if char == guess:
-                self.answer[i] = char
+        if len(guess) > 1:
+            if self.word == guess:
                 correct = True
+                for i, char in enumerate(self.word):
+                    self.answer[i] = char
+        else:
+            for i, char in enumerate(self.word):
+                if char == guess:
+                    self.answer[i] = char
+                    correct = True
         if not correct:
             self.state += 1
 
     def play(self):
         while True:
+            # Print hangman art
+            print()
+            art.print_art(self.state)
+            self.print_answer()
             # Win check
             if self.check_win():
                 print("You win!")
@@ -43,17 +54,13 @@ class Game:
                 print("You lose!")
                 break
 
-            # Print hangman art
-            art.print_art(self.state)
-            self.print_answer()
-
-            guess = input("Write your guess: ")
+            guess = input("Write your guess: ").strip().lower()
             # input validation
-            if not guess.isalpha() or len(guess) > 1:
-                print("Please write a single letter")
+            if not guess.isalpha():
+                print("Please write a letter in alphabet")
                 continue
             if guess in self.guessed_chars:
-                print("You already chosen that letter")
+                print("You already chosen that")
                 continue
 
             self.guessed_chars.add(guess)
