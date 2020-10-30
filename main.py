@@ -1,4 +1,4 @@
-import art as art
+import art
 from game import Game
 
 

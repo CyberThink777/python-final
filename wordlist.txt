@@ -1,5 +1,10 @@
 apple
 banana
+durian
+grape
 orange
+pear
 mango
 pineapple
+watermelon
+lemon
