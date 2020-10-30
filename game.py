@@ -60,7 +60,7 @@ class Game:
                 print("Please write a letter in alphabet")
                 continue
             if guess in self.guessed_chars:
-                print("You already chosen that")
+                print("You've already chosen that")
                 continue
 
             self.guessed_chars.add(guess)
