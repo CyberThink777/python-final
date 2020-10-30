@@ -23,6 +23,16 @@ class Game:
         return False
         # if state < 10 and :
 
+    def check_ans(self, guess):
+        # TODO check whole word
+        correct = False
+        for i,char in enumerate(self.word):
+            if char == guess:
+                self.answer[i] = char
+                correct = True
+        if not correct:
+            self.state += 1
+
     def play(self):
         while True:
             # Win check
@@ -45,5 +55,6 @@ class Game:
             if guess in self.guessed_chars:
                 print("You already chosen that letter")
                 continue
-            
+
             self.guessed_chars.add(guess)
+            self.check_ans(guess)
