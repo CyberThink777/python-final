@@ -6,7 +6,7 @@ def main():
     print("-----Welcome to Hangman-----")
     print()
     art.print_home()
-    print("-------Topic: Fruits--------")
+    print("-------Category: Fruits--------")
     input("Press Enter to play ")
 
     while True:
